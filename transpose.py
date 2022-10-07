@@ -61,7 +61,8 @@ while True:  # transpose Rx
         elif axis <= 90:
             axis += 90
             transposed_rx[2] = axis
-        print("Here is the Rx in negative cyl form", transposed_rx)
+        print(f'Here is the Rx in negative cyl form:\n{transposed_rx[0]:.2f}', f'{transposed_rx[1]:.2f}',
+              f"@{str(transposed_rx[2]).rjust(3, '0')}")
     elif cyl < 0:
         transposed_rx[0] = cyl + sph
         cyl *= -1
