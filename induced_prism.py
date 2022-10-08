@@ -1,6 +1,6 @@
 import math
 '''This script can find find prism if the axis is on an oblique angle.
-It does not take resultant prism from bidirectional displacement'''
+It does not take resultant prism into account from bidirectional displacement'''
 while True:
     '''print("Right or Left eye? (r/l)")
     right_left_input = input()'''
@@ -30,13 +30,13 @@ while True:
 while True:
     print("Decentration up (mm)?")
     decen_vert_input = input()
-    axis = 90 - axis_input
+    axis = 180 - axis_input
     try:
         decen_vert_input = float(decen_vert_input)
     except ValueError:
         print('Please use numeric digits.')
     try:
-        axis = 90 - axis_input
+        axis = 180 - axis_input
         axis = (math.sin(math.radians(axis)) ** 2) * cyl_input + sph_input
         print("The sphere power @90 is:", axis)
     finally:

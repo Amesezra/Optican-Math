@@ -1,3 +1,7 @@
+from oblique_axis import oblique_axis_180
+from oblique_axis import oblique_axis_90
+from transpose import transpose
+
 while True:  # validate user input
     sphere = input(f"Enter the sph or spherical value: ")
     try:
@@ -41,5 +45,11 @@ while True:
         continue
     break
 input_rx = [sphere, cylinder, axis]
-transposed_rx = [0, 0, 0]
 print(f'Here is the given Rx:\n{sphere:.2f}', f'{cylinder:.2f}', f"@{str(axis).rjust(3, '0')}")
+print(f'Now what do you want to do?')
+print('1. transpose rx')
+print('2. find prismatic imbalance')
+#  task = input()
+transpose()
+oblique_axis_180()
+oblique_axis_90()
