@@ -1,4 +1,8 @@
 import math
+#  TODO: configure base direction calculator, determine based on x positivity,
+#   and given user input R/L or OD/OS.
+#  TODO: make Rx Class, so it is easier to store known variables: sph, cyl, axis, OD/OS, PD, OC, etc.)
+#  TODO: with known base directions, determine compounding or cancelling prism.
 
 
 def oblique_axis_90(input_rx):
@@ -10,15 +14,15 @@ def oblique_axis_90(input_rx):
             decen_vert_input = float(decen_vert_input)
         except ValueError:
             print('Please use numeric digits.')
-        try:
-            axis = 90 - input_rx[2]
-            axis = (math.sin(math.radians(axis)) ** 2) * input_rx[1] + input_rx[0]
-            print(f"{axis:.2}", "D @ 90")
-        finally:
-            vprism = ((decen_vert_input * axis) / 10) - input_rx[0]
-            vprism += input_rx[0]
-            print(f"{vprism:.2f}", "is the amount of vertical prism induced")
-            break
+        break
+    cyl_expressed = input_rx[1] - ((math.sin(math.radians(axis)) ** 2) * input_rx[1])
+    axis = 90 - input_rx[2]
+    axis = (math.sin(math.radians(axis)) ** 2) * input_rx[1] + input_rx[0]
+    print(f"{axis:.2f}", "D @ 90")
+    print("here is the Rx expressed @90:", f"{axis:.2f}", f"{cyl_expressed:.2f}", 90)
+    vprism = ((decen_vert_input * axis) / 10) - input_rx[0]
+    vprism += input_rx[0]
+    print(f"{vprism:.3f}", "is the amount of vertical prism induced")
 
 
 def oblique_axis_180(input_rx):
@@ -31,10 +35,10 @@ def oblique_axis_180(input_rx):
             print('Please use numeric digits.')
         break
     axis = 180 - input_rx[2]
+    cyl_expressed = input_rx[1] - ((math.sin(math.radians(axis)) ** 2) * input_rx[1])
     axis = (math.sin(math.radians(axis)) ** 2) * input_rx[1] + input_rx[0]
     print(f"{axis:.2f}", "D @ 180")
+    print("here is the Rx expressed @180:", f"{axis:.2f}", f"{cyl_expressed:.2f}", 180)
     hprism = ((axis * decen_horz_input) / 10) - input_rx[0]
-    print("here is the Rx @90:", axis, decen_horz_input, input_rx[0])
-    #  the line above gives the correct sph, but cyl and axis are wrong.
     hprism += input_rx[0]
-    print(f"{hprism:.2f}", "is the amount of horizontal prism induced")
+    print(f"{hprism:.3f}", "is the amount of horizontal prism induced")

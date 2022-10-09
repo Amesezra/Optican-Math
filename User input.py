@@ -49,7 +49,18 @@ print(f'Here is the given Rx:\n{sphere:.2f}', f'{cylinder:.2f}', f"@{str(axis).r
 print(f'Now what do you want to do?')
 print('1. transpose rx')
 print('2. find prismatic imbalance')
-#  task = input()
-transposed_rx = transpose(input_rx)
-oblique180 = oblique_axis_180(input_rx)
-oblique90 = oblique_axis_90(input_rx)
+#  TODO: choice what type of refractive error is this Rx? myopia, hyperopia, presbyopia, simple/compound/mixed etc.
+#  TODO: Choice vertex calculation
+#  TODO: Contact lens conversion
+#  TODO: Lens tilt/wrap calc
+#  TODO: recommendations on eye-wear based on Rx
+#  TODO: frame PD/OC calculator
+choice = str(input())
+while choice not in ['1', '2']:
+    print("Your choice is invalid. Please try again.")
+    choice = input("Choose 1 or 2: ")
+if choice == '1':
+    transposed_rx = transpose(input_rx)
+elif choice == '2':
+    oblique180 = oblique_axis_180(input_rx)
+    oblique90 = oblique_axis_90(input_rx)
