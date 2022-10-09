@@ -12,7 +12,22 @@ d = distance (in meters) that the lens has moved from the refracted position to 
 
 De = Dl / (1 + (d * Dl))"""
 
-# TODO: sph vertex calc first
+
+def vertex_calc(input_rx):
+    while True:
+        print(f"What is the refracted vertex distance RVD (in mm)?: ")
+        rvd = input()
+        print(f"What is the back vertex distance BVD (in mm) of the glasses?: ")
+        bvd = input()
+        try:
+            rvd = float(rvd)
+            bvd = float(bvd)
+            eff_d = input_rx[0] / (1 + (((bvd - rvd)/1000) * input_rx[0]))
+            print(f"{eff_d:.2f}", f"is the expressed power at", f"{bvd:.2f}", "mm")
+        except ValueError:
+            print('Please use numeric digits.')
+        break
+
 # TODO: add astigmatism vertex calculations
 # TODO: contact Rx from spectacle Rx.  Need warning script.
 #   single vision correction
