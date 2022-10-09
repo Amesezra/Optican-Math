@@ -1,5 +1,4 @@
-def transpose():
-    input_rx = []
+def transpose(input_rx):
     transposed_rx = [0, 0, 0]
     while True:  # transpose Rx
         sph = input_rx[0]
@@ -29,7 +28,7 @@ def transpose():
                 axis += 90
                 transposed_rx[2] = axis
             print(f'Here is the transposed Rx:\n{transposed_rx[0]:.2f}', f'{transposed_rx[1]:.2f}',
-                  f"@{str(transposed_rx[2]).rjust(3, '0')}")
+                  f"@{str(transposed_rx[2]).rjust(3, '0')}\n")
         else:
             print("Zero cyl means there is no astigmatism to transpose")
         break
