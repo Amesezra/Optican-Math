@@ -1,10 +1,14 @@
+"""The transpose function converts the Rx from opthalmic standard notation to optometric
+standard notation.  Sometimes called plus/minus cylinder forms, both are equivalent but express correction
+from either the maximum or minimum corrective power needed rotated by 90 degrees or pi/2 radians"""
+
 def transpose(input_rx):
     transposed_rx = [0, 0, 0]
-    while True:  # transpose Rx
+    while True:
         sph = input_rx[0]
         cyl = input_rx[1]
         axis = input_rx[2]
-        if cyl > 0:  # Checking if the number is positive
+        if cyl > 0:
             sign = -1 if cyl > 0 else 1
             transposed_rx[0] = cyl + sph  # transpose power
             cyl = cyl * sign  # reverse signs
