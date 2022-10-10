@@ -5,10 +5,10 @@ be a compensating power change.
 The compensated (or effective) lens power is the adjusted power of the lens according to the new vertex distance.
 The compensated power is given by the following equation given that:
 
-D = Diopter (lens power)
-De = effective diometric power
+input_rx[0] = D = Diopter (lens power)
+eff_d = De = effective diometric power
 Dl = diometric power of the lens
-d = distance (in meters) that the lens has moved from the refracted position to as worn.
+(bvd - rvd) = d = distance (in meters) that the lens has moved from the refracted position to as worn.
 
 De = Dl / (1 + (d * Dl))"""
 
@@ -22,7 +22,7 @@ def vertex_calc(input_rx):
         try:
             rvd = float(rvd)
             bvd = float(bvd)
-            eff_d = input_rx[0] / (1 + (((bvd - rvd)/1000) * input_rx[0]))
+            eff_d = input_rx[0] / (1 + (((bvd - rvd)/1000) * input_rx[0]))  # /1000 ia a unit conversion mm to m.
             print(f"{eff_d:.2f}", f"is the expressed power at", f"{bvd:.2f}", "mm")
         except ValueError:
             print('Please use numeric digits.')

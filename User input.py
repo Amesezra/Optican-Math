@@ -2,6 +2,7 @@ from oblique_axis import oblique_axis_180
 from oblique_axis import oblique_axis_90
 from transpose import transpose
 from vertex import vertex_calc
+from Tilt_compensation import tilt
 
 while True:  # validate user input
     sphere = input(f"Enter the sph or spherical value: ")
@@ -51,15 +52,26 @@ print(f'Now what do you want to do?')
 print('1. Transpose rx')
 print('2. Find prismatic imbalance')
 print('3. Vertex rx')
+print('4. Tilt or Warp angle calculator')
 #  TODO: choice what type of refractive error is this Rx? myopia, hyperopia, presbyopia, simple/compound/mixed etc.
-#  TODO: Choice vertex calculation
+#       use transpose function to check both meridians for delta in power, and positivity.
 #  TODO: Contact lens conversion
+#        use vertex function at 0mm BVD, round axis based on with/against rule astigmatism.
 #  TODO: Lens tilt/wrap calc
 #  TODO: recommendations on eye-wear based on Rx
 #  TODO: frame PD/OC calculator
 #  TODO: ANSI Pass-Fail?
+#  TODO: Focal length calc
+#  TODO: SV blank size
+#  TODO: Crossed cylinders
+#  TODO: Spectacle Magnification Calculation
+#  TODO: lens thickness calculator
+#  TODO: Vertical imbalance
+#  TODO: compounding prisms calculation (360 notation)
+#  TODO: Resolving Prisms calculation (360 notation)
+#  TODO: Surface curve conversion
 choice = str(input())
-while choice not in ['1', '2', '3']:
+while choice not in ['1', '2', '3', '4']:
     print("Your choice is invalid. Please try again.")
     choice = input("Choose 1 or 2: ")
 if choice == '1':
@@ -69,3 +81,5 @@ elif choice == '2':
     oblique90 = oblique_axis_90(input_rx)
 elif choice == '3':
     vertexed_rx = vertex_calc(input_rx)
+elif choice == '4':
+    tilted_rx = tilt(input_rx)
