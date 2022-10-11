@@ -1,7 +1,4 @@
 import math
-import json
-# TODO: make another function for lens tilt/wrap calculations
-# TODO: vertical vs horizontal movements
 """
 new_sph = S' = new spherical power
 origin_sph = S = original sphere power
@@ -22,8 +19,8 @@ these measurements"""
 
 def tilt(input_rx):
     origin_sph = input_rx[0]
-    index = 1.586  # this is polycarbonate TODO add material choice, and list with n values for each.
-    alpha = 15  # this is a filler value.  TODO add input prompt for pantoscopic and retroscopic tilt
+    index = 1.586  # this is polycarbonate.
+    alpha = 15  # this is a filler value.
     new_sph = origin_sph * (1 + ((math.sin(math.radians(alpha)) ** 2) / (2 * index)))
     induced_cyl = new_sph * (math.sin(math.radians(alpha)) ** 2)
     print(f"{new_sph:.2f}", f"{induced_cyl:.2f}", 180)
@@ -31,7 +28,7 @@ def tilt(input_rx):
 def wrap(input_rx):
     origin_sph = input_rx[0]
     index = 1.586
-    alpha = 15  # this is a filler value.  TODO add input prompt for pantoscopic and retroscopic tilt
+    alpha = 15  # this is a filler value
     new_sph = origin_sph * (1 + ((math.sin(math.radians(alpha)) ** 2) / (2 * index)))
     induced_cyl = new_sph * (math.sin(math.radians(alpha)) ** 2)
     print(f"{new_sph:.2f}", f"{induced_cyl:.2f}", 90)

@@ -53,23 +53,7 @@ print('1. Transpose rx')
 print('2. Find prismatic imbalance')
 print('3. Vertex rx')
 print('4. Tilt or Warp angle calculator')
-#  TODO: compensated lens power (vertex, tilt, wrap)
-#  TODO: choice what type of refractive error is this Rx? myopia, hyperopia, presbyopia, simple/compound/mixed etc.
-#       use transpose function to check both meridians for delta in power, and positivity.
-#  TODO: Contact lens conversion
-#        use vertex function at 0mm BVD, round axis based on with/against rule astigmatism.
-#  TODO: recommendations on eye-wear based on Rx
-#  TODO: frame PD/OC calculator
-#  TODO: ANSI Pass-Fail?
-#  TODO: Focal length calc
-#  TODO: SV blank size
-#  TODO: Crossed cylinders
-#  TODO: Spectacle Magnification Calculation
-#  TODO: lens thickness calculator
-#  TODO: Vertical imbalance
-#  TODO: compounding prisms calculation (360 notation)
-#  TODO: Resolving Prisms calculation (360 notation)
-#  TODO: Surface curve conversion
+
 choice = str(input())
 while choice not in ['1', '2', '3', '4']:
     print("Your choice is invalid. Please try again.")
@@ -83,4 +67,3 @@ elif choice == '3':
     vertexed_rx = vertex_calc(input_rx)
 elif choice == '4':
     tilted_rx = tilt(input_rx)
-#  TODO add wrap vs tilt sub option

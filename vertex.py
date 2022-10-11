@@ -1,4 +1,3 @@
-#  TODO: lens vertex distance calculator.
 """When a spectacle lens is moved either closer to or further away from the eye, its effective power is changed.
 This means that in order for the lens to give the same refractive effect at the new vertex distance, there must
 be a compensating power change.
@@ -27,14 +26,3 @@ def vertex_calc(input_rx):
         except ValueError:
             print('Please use numeric digits.')
         break
-
-# TODO: add astigmatism vertex calculations
-# TODO: contact Rx from spectacle Rx.  Need warning script.
-#   single vision correction
-#   toric/ astigmatic correction
-#       With or against rule, rounding to nearest 10 towards major meridians
-#       spherical equivalent
-#   Mono Vision correction
-#       Dom/Non Dom eye
-#   Multifocal correction
-#   import JSON of tyler quarterly lens specifications

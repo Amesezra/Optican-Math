@@ -1,8 +1,4 @@
 import math
-#  TODO: configure base direction calculator, determine based on x positivity,
-#   and given user input R/L or OD/OS.
-#  TODO: make Rx Class, so it is easier to store known variables: sph, cyl, axis, OD/OS, PD, OC, etc.)
-#  TODO: with known base directions, determine compounding or cancelling prism.
 """When light passes through a lens, it refracts.  If the point of refraction or the optical center of a lens
 is misaligned with the wearer's pupil it causes a prismatic error. Prism is measured in the vertical and
 horizontal meridians (90/180).  Rx's with astigmatism do not always align with these points, this function uses
