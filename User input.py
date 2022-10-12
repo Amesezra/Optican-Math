@@ -228,6 +228,26 @@ def svblank():
     print(f'The minimum blank size required to fabricate a lens for this order is:', svblanksize, 'mm')
 
 
+def basecurve():
+    """spherical_equivalent = sphere + (cylinder / 2)
+    print(spherical_equivalent)
+    plus_vogels_curve = spherical_equivalent + 6
+    minus_vogels_curve = (sphere + spherical_equivalent) / 2) + 6"""
+    while True:
+        if sphere >= 0:
+            print("Based on Vogel's rule, the base curve shouold be:")
+            spherical_equivalent = sphere + (cylinder / 2)
+            vogels_curve = spherical_equivalent + 6
+            print(f'{vogels_curve:.3f}')
+        elif sphere < 0:
+            print("Based on Vogel's rule, the base curve shouold be:")
+            spherical_equivalent = sphere + (cylinder / 2)
+            vogels_curve = spherical_equivalent / 2
+            vogels_curve += 6
+            print(f'{vogels_curve:.3f}')
+        break
+
+
 print(f'Here is the given Rx:\n{sphere:.2f}', f'{cylinder:.2f}', f"@{str(axis).rjust(3, '0')}")
 print(f'Now what do you want to do?')
 print('1. Transpose rx')
@@ -236,9 +256,10 @@ print('3. Vertex rx')
 print('4. Tilt angle calculator')
 print('5. Wrap angle calculator')
 print('6. SV minimum blank size')
+print('7. Base curve calculator/Nominal lens formula')
 
 choice = str(input())
-while choice not in ['1', '2', '3', '4', '5', '6']:
+while choice not in ['1', '2', '3', '4', '5', '6', '7']:
     print("Your choice is invalid. Please try again.")
     choice = input("Choose 1 or 2: ")
 if choice == '1':
@@ -254,3 +275,5 @@ elif choice == '5':
     wrap()
 elif choice == '6':
     svblank()
+elif choice == '7':
+    basecurve()
