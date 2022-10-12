@@ -20,6 +20,7 @@ functions indlude:
 * creating and managing a github respository
 * commits, and pulls, and pushes using git
 * Information collection from documentation, stack overflow, google, etc.
+* debugging, and syntax correction
 * input validation and value error exception statements
 * conditionals, functions, and loops
 * import of libraries, specific implentation was for trig functions
