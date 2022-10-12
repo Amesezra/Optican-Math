@@ -194,7 +194,18 @@ def oblique_axis_90():
     print("here is the Rx expressed @90:", f"{vetical_axis:.2f}", f"{cyl_expressed:.2f}", 90)
     vprism = ((decen_vert_input * vetical_axis) / 10) - input_rx[0]
     vprism += input_rx[0]
-    print(f"{vprism:.3f}", "is the amount of vertical prism induced")
+    base_direction = ''
+    if input_rx[0] > 0 and decen_vert_input > 0:
+        base_direction = str("Base in")
+    elif input_rx[0] > 0 > decen_vert_input:
+        base_direction = str("Base out")
+    elif input_rx[0] == 0 or decen_vert_input == 0:
+        base_direction = str("There is no prismatic imbalance.")
+    elif input_rx[0] < 0 < decen_vert_input:
+        base_direction = str("Base out")
+    elif input_rx[0] < 0 and decen_vert_input < 0:
+        base_direction = str("Base in")
+    print(f"{vprism:.3f}", "D prism", base_direction)
 
 
 def oblique_axis_180():
@@ -213,7 +224,18 @@ def oblique_axis_180():
     print("here is the Rx expressed @180:", f"{horizontal_axis:.2f}", f"{cyl_expressed:.2f}", 180)
     hprism = ((horizontal_axis * decen_horz_input) / 10) - input_rx[0]
     hprism += input_rx[0]
-    print(f"{hprism:.3f}", "is the amount of horizontal prism induced")
+    base_direction = ''
+    if input_rx[0] > 0 and decen_horz_input > 0:
+        base_direction = str("Base in")
+    elif input_rx[0] > 0 > decen_horz_input:
+        base_direction = str("Base out")
+    elif input_rx[0] == 0 or decen_horz_input == 0:
+        base_direction = str("There is no prismatic imbalance.")
+    elif input_rx[0] < 0 < decen_horz_input:
+        base_direction = str("Base out")
+    elif input_rx[0] < 0 and decen_horz_input < 0:
+        base_direction = str("Base in")
+    print(f"{hprism:.3f}", "D prism", base_direction)
 
 
 def svblank():
@@ -235,12 +257,12 @@ def basecurve():
     minus_vogels_curve = (sphere + spherical_equivalent) / 2) + 6"""
     while True:
         if sphere >= 0:
-            print("Based on Vogel's rule, the base curve shouold be:")
+            print("Based on Vogel's rule, the base curve should be:")
             spherical_equivalent = sphere + (cylinder / 2)
             vogels_curve = spherical_equivalent + 6
             print(f'{vogels_curve:.3f}')
         elif sphere < 0:
-            print("Based on Vogel's rule, the base curve shouold be:")
+            print("Based on Vogel's rule, the base curve should be:")
             spherical_equivalent = sphere + (cylinder / 2)
             vogels_curve = spherical_equivalent / 2
             vogels_curve += 6

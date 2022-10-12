@@ -41,4 +41,14 @@ def oblique_axis_180(input_rx):
     print("here is the Rx expressed @180:", f"{axis:.2f}", f"{cyl_expressed:.2f}", 180)
     hprism = ((axis * decen_horz_input) / 10) - input_rx[0]
     hprism += input_rx[0]
+    if input_rx[0] > 0 and decen_horz_input > 0:
+        print("Base in")
+    elif input_rx[0] > 0 > decen_horz_input:
+        print("Base out")
+    elif input_rx[0] == 0 or decen_horz_input == 0:
+        print("There is no prismatic imbalance.")
+    elif input_rx[0] < 0 < decen_horz_input:
+        print("Base out")
+    elif input_rx[0] < 0 and decen_horz_input < 0:
+        print("Base in")
     print(f"{hprism:.3f}", "is the amount of horizontal prism induced")
