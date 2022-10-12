@@ -216,6 +216,18 @@ def oblique_axis_180():
     print(f"{hprism:.3f}", "is the amount of horizontal prism induced")
 
 
+def svblank():
+    print("The PD is the distance between pupils, An 'A' measurement is the vertical height of the lens, the DBL is \n"
+          "the distance between lenses, or the bridge size.  The ED of a frame is twice the longest radius from the \n"
+          "geometric center of lens to the farthest edge; the smallest circle that will completely enclose the lens.")
+    cust_pd = int(input("What is the customer's PD? "))
+    frame_a = int(input("What is the frame's A? "))
+    frame_dbl = int(input("What is the frame's DBL? "))
+    frame_ed = int(input("What is the frame's ED? "))
+    svblanksize = 1 + frame_ed + ((frame_a + frame_dbl) - cust_pd)
+    print(f'The minimum blank size required to fabricate a lens for this order is:', svblanksize, 'mm')
+
+
 print(f'Here is the given Rx:\n{sphere:.2f}', f'{cylinder:.2f}', f"@{str(axis).rjust(3, '0')}")
 print(f'Now what do you want to do?')
 print('1. Transpose rx')
@@ -223,9 +235,10 @@ print('2. Find prismatic imbalance')
 print('3. Vertex rx')
 print('4. Tilt angle calculator')
 print('5. Wrap angle calculator')
+print('6. SV minimum blank size')
 
 choice = str(input())
-while choice not in ['1', '2', '3', '4', '5']:
+while choice not in ['1', '2', '3', '4', '5', '6']:
     print("Your choice is invalid. Please try again.")
     choice = input("Choose 1 or 2: ")
 if choice == '1':
@@ -239,3 +252,5 @@ elif choice == '4':
     tilt()
 elif choice == '5':
     wrap()
+elif choice == '6':
+    svblank()
