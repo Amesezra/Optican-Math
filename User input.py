@@ -1,6 +1,6 @@
 import math
-print("Welcome to the optician math helper.")
 
+print("Welcome to the optician math helper.")
 
 while True:  # validate user input
     sphere = input(f"Enter the sph or spherical value: ")
@@ -103,13 +103,13 @@ De = Dl / (1 + (d * Dl))"""
 def vertex_calc():
     while True:
         print(f"What is the refracted vertex distance RVD (in mm)?: ")
-        rvd = input()
+        rvd = input()  # rvd is the standard abbreviation for 'Rear Vertex Distance', this is the refracted distance.
         print(f"What is the back vertex distance BVD (in mm) of the glasses?: ")
-        bvd = input()
+        bvd = input()  # bvd is the standard abbreviation for 'Back Vertex Distance' or distance from lens to eye.
         try:
             rvd = float(rvd)
             bvd = float(bvd)
-            eff_d = input_rx[0] / (1 + (((bvd - rvd)/1000) * input_rx[0]))  # /1000 ia a unit conversion mm to m.
+            eff_d = input_rx[0] / (1 + (((bvd - rvd) / 1000) * input_rx[0]))  # /1000 ia a unit conversion mm to m.
             print(f"{eff_d:.2f}", f"is the expressed power at", f"{bvd:.2f}", "mm")
         except ValueError:
             print('Please use numeric digits.')
@@ -165,7 +165,7 @@ def wrap():
             continue
         break
     origin_sph = input_rx[0]
-    index = 1.586
+    index = 1.586  # this is the refractive index of the lens material, 1.586 is polycarbonate.
     new_sph = origin_sph * (1 + ((math.sin(math.radians(alpha)) ** 2) / (2 * index)))
     induced_cyl = new_sph * (math.sin(math.radians(alpha)) ** 2)
     print("The induced power from the wrap is:", f"{new_sph:.2f}", f"{induced_cyl:.2f}", 90)
