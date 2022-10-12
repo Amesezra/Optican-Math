@@ -3,6 +3,7 @@ from oblique_axis import oblique_axis_90
 from transpose import transpose
 from vertex import vertex_calc
 from Tilt_compensation import tilt
+from Tilt_compensation import wrap
 
 while True:  # validate user input
     sphere = input(f"Enter the sph or spherical value: ")
@@ -52,10 +53,11 @@ print(f'Now what do you want to do?')
 print('1. Transpose rx')
 print('2. Find prismatic imbalance')
 print('3. Vertex rx')
-print('4. Tilt or Warp angle calculator')
+print('4. Tilt angle calculator')
+print('5. Wrap angle calculator')
 
 choice = str(input())
-while choice not in ['1', '2', '3', '4']:
+while choice not in ['1', '2', '3', '4', '5']:
     print("Your choice is invalid. Please try again.")
     choice = input("Choose 1 or 2: ")
 if choice == '1':
@@ -67,3 +69,5 @@ elif choice == '3':
     vertexed_rx = vertex_calc(input_rx)
 elif choice == '4':
     tilted_rx = tilt(input_rx)
+elif choice == '5':
+    wrapped_rx = wrap(input_rx)
