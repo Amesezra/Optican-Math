@@ -270,6 +270,11 @@ def basecurve():
         break
 
 
+def framepd():
+    frame_a = int(input("What is the frame's A? "))
+    frame_dbl = int(input("What is the frame's DBL? "))
+    print(f'The frames PD is:', f'{frame_a + frame_dbl:.2f}')
+
 print(f'Here is the given Rx:\n{sphere:.2f}', f'{cylinder:.2f}', f"@{str(axis).rjust(3, '0')}")
 print(f'Now what do you want to do?')
 print('1. Transpose rx')
@@ -279,11 +284,11 @@ print('4. Tilt angle calculator')
 print('5. Wrap angle calculator')
 print('6. SV minimum blank size')
 print('7. Base curve calculator/Nominal lens formula')
-
+print('8. Frame PD')
 choice = str(input())
-while choice not in ['1', '2', '3', '4', '5', '6', '7']:
+while choice not in ['1', '2', '3', '4', '5', '6', '7', '8']:
     print("Your choice is invalid. Please try again.")
-    choice = input("Choose 1 or 2: ")
+    choice = input("Choose a number.")
 if choice == '1':
     transpose()
 elif choice == '2':
@@ -299,3 +304,5 @@ elif choice == '6':
     svblank()
 elif choice == '7':
     basecurve()
+elif choice == '8':
+    framepd()
